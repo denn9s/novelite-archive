@@ -5,7 +5,7 @@ const routes = require('./routes');
 const { updateDB } = require('./services/update_stories');
 
 const app = express();
-const port = 3000;
+const port = 6969;
 
 app.use(cors());
 
