@@ -5,7 +5,6 @@ class Tweet extends Component {
         super(props);
         this.state = {
             username: this.props.username,
-            id: this.props.id,
             text: this.props.text,
             timestamp: this.props.timestamp,
             link: this.props.link,
@@ -13,12 +12,16 @@ class Tweet extends Component {
     }
 
     render() {
-        const {username, id, text, timestamp, link} = this.props;
+        const {username, text, timestamp, link} = this.props;
         return(
-            <div>
-                <p>{username}</p>
-                <p>{id}</p>
-            </div>
+            <blockquote cite={username}>
+                    {text}
+                    <span>
+                        ~ <a href={`https://twitter.com/${username}`} className="username_link">@{username}</a>
+                        <br></br>
+                        <a href={link} className="username_link">{timestamp}</a>
+                    </span>
+            </blockquote>
         )
     }
 }

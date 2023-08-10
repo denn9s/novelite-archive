@@ -12,9 +12,9 @@ class ImageDisplay extends Component {
         const {attached_images} = this.props;
         return(
             <div>
-            {attached_images.map(p => {
-                return <img key={p} src={p} alt="can't show" />;
-            })}
+                {attached_images.map(p => {
+                    return [<img className="attached_images" key={p} src={p} alt="some fanfic" />, <br/>];
+                })}
             </div>
         )
     }
