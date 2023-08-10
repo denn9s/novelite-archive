@@ -22,7 +22,7 @@ async function getRandomStory(req, res) {
         username: story.username,
         id: story.tweet_id,
         text: story.text,
-        timestamp: story.timestamp,
+        timestamp: story.timestamp.toLocaleDateString(),
         link: story.link,
         attached_images: story.attached_images,
     });

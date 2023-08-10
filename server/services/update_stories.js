@@ -79,7 +79,6 @@ async function updateDB() {
     } else {
         console.log('no new stories to add to DB');
     }
-    mongoose.connection.close();
 }
 
 module.exports = { updateDB };
