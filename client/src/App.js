@@ -49,15 +49,20 @@ class App extends Component {
     render() {
         const { username, text, timestamp, link, attached_images } = this.state;
         return (
-            <main>
-                <button onClick={this.showModal} className="modal-button">Show</button>
+            <main class="h-screen bg-dark-gray">
+                {/* <button onClick={this.showModal} className="modal-button content-center">Show</button>
                 <InfoModal modal_show={this.state.modal_show} handleClose={this.hideModal}>
                     <p>Modal</p>
-                </InfoModal>
-                <h1>#ShiorinStories</h1>
-                <a href="https://www.youtube.com/@ShioriNovella">link here</a>
-                <br/>
-                <button onClick={this.getStory.bind(this)}>👁️‍🗨️ Read a story 👁️‍🗨️</button>
+                </InfoModal> */}
+                <div class="text-center">
+                    <h1 class="mb-6 text-5xl font-bold text-white">#ShiorinStories</h1>
+                    <a href="https://www.youtube.com/@ShioriNovella" class="text-white">link here</a>
+                    <div></div>
+                    <button onClick={this.getStory.bind(this)} 
+                        class="bg-light-purple hover:bg-light-purple text-white font-bold py-2 px-4">
+                            👁️‍🗨️ Read a story 👁️‍🗨️
+                    </button>
+                </div>
                 {
                     this.state.show && 
                     <Story 

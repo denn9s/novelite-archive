@@ -11,9 +11,9 @@ class ImageDisplay extends Component {
     render() {
         const {attached_images} = this.props;
         return(
-            <div>
+            <div class="text-center">
                 {attached_images.map(p => {
-                    return [<img className="attached_images" key={p} src={p} alt="some fanfic" />, <br/>];
+                    return [<img class="mx-auto" key={p} src={p} alt="some fanfic" />, <br/>];
                 })}
             </div>
         )
