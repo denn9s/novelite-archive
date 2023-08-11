@@ -13,7 +13,7 @@ class ImageDisplay extends Component {
         return(
             <div class="text-center">
                 {attached_images.map(p => {
-                    return [<img class="mx-auto" key={p} src={p} alt="some fanfic" />, <br/>];
+                    return [<img class="mx-auto border-light-purple border-solid border-4 rounded-lg" key={p} src={p} alt="some fanfic" />, <br/>];
                 })}
             </div>
         )

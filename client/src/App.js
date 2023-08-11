@@ -2,7 +2,6 @@ import './App.css';
 import { Component } from "react";
 
 import Story from './components/Story';
-import InfoModal from './components/InfoModal';
 
 class App extends Component {
     constructor(props) {
@@ -15,10 +14,7 @@ class App extends Component {
             link: '',
             attached_images: [],
             show: false,
-            modal_show: false,
         }
-        this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this);
     }
 
     async getStory() {
@@ -34,32 +30,15 @@ class App extends Component {
         });
     }
 
-    showModal() {
-        this.setState({
-            modal_show: true,
-        });
-    }
-
-    hideModal() {
-        this.setState({
-            modal_show: false,
-        });
-    }
-
     render() {
         const { username, text, timestamp, link, attached_images } = this.state;
         return (
-            <main class="h-screen bg-dark-gray">
-                {/* <button onClick={this.showModal} className="modal-button content-center">Show</button>
-                <InfoModal modal_show={this.state.modal_show} handleClose={this.hideModal}>
-                    <p>Modal</p>
-                </InfoModal> */}
+            <main>
+                <img src="profile.jpg" class="fixed rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0" alt="shiorin"></img>
                 <div class="text-center">
-                    <h1 class="mb-6 text-5xl font-bold text-white">#ShiorinStories</h1>
-                    <a href="https://www.youtube.com/@ShioriNovella" class="text-white">link here</a>
-                    <div></div>
+                    <h1 class="mt-24 text-5xl font-bold text-white">#ShiorinStories</h1>
                     <button onClick={this.getStory.bind(this)} 
-                        class="bg-light-purple hover:bg-light-purple text-white font-bold py-2 px-4">
+                        class="bg-light-purple hover:bg-light-purple text-white font-bold py-2 px-4 my-5 rounded-lg">
                             👁️‍🗨️ Read a story 👁️‍🗨️
                     </button>
                 </div>
