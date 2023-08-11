@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 
 const { SearchMode } = require("@the-convocation/twitter-scraper");
-const { scraper, login } = require('../services/scraper_login');
+const { scraper } = require('../services/scraper_login');
 
 const Story = require('../models/story');
 
@@ -20,8 +20,6 @@ async function _getTweets(last_updated_date_obj) {
      * @returns {Array.<Story>} a list of Story objects
      */
     
-    await login()
-
     // not the best approach here but i think it might be fine, should probably do something else lol
     story_hashtag = '#ShiorinStories';
     start_date = `since:${last_updated_date_obj.toISOString().split('T')[0]}`;

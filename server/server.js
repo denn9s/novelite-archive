@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const routes = require('./routes');
 const { updateDB } = require('./services/update_stories');
+const { login } = require('./services/scraper_login');
 
 const app = express();
 const port = 6969;
@@ -18,4 +19,5 @@ app.use('', routes);
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`starting server on port ${port}`);
+    login();
 });
