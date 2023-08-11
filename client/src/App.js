@@ -34,11 +34,11 @@ class App extends Component {
         const { username, text, timestamp, link, attached_images } = this.state;
         return (
             <main>
-                <img src="profile.jpg" class="fixed rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0" alt="shiorin"></img>
-                <div class="text-center">
-                    <h1 class="mt-24 text-5xl font-bold text-white">#ShiorinStories</h1>
+                <img src="profile.jpg" className="fixed rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0" alt="shiorin"></img>
+                <div className="text-center">
+                    <h1 className="mt-24 text-5xl font-bold text-white">#ShiorinStories</h1>
                     <button onClick={this.getStory.bind(this)} 
-                        class="bg-light-purple hover:bg-light-purple text-white font-bold py-2 px-4 my-5 rounded-lg">
+                        className="bg-light-purple hover:bg-light-purple text-white font-bold py-2 px-4 my-5 rounded-lg">
                             👁️‍🗨️ Read a story 👁️‍🗨️
                     </button>
                 </div>

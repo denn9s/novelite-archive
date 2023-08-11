@@ -10,13 +10,14 @@ class ImageDisplay extends Component {
 
     render() {
         const {attached_images} = this.props;
+        const image_elements = attached_images.map((p) =>
+            <img className="mx-auto border-light-purple border-solid border-4 rounded-lg" key={p}src={p} alt="could not load, sorry!"/>
+        );
         return(
-            <div class="text-center">
-                {attached_images.map(p => {
-                    return [<img class="mx-auto border-light-purple border-solid border-4 rounded-lg" key={p} src={p} alt="some fanfic" />, <br/>];
-                })}
+            <div className="text-center">
+                {image_elements}
             </div>
-        )
+        );
     }
 }
 
