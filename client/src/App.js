@@ -64,6 +64,12 @@ class App extends Component {
                 <InfoModal />
                 <div className="text-center">
                     <h1 className="mt-24 text-5xl font-bold text-white">#ShiorinStories</h1>
+                    <p className="text-white">
+                        Subscribe to Shiori's {' '}
+                        <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">YouTube</a>{' '} 
+                        and follow her on {' '}
+                        <a href="https://www.twitter.com/ShioriNovella" className="text-light-purple">Twitter</a>!
+                    </p>
                     <button onClick={this.getStory.bind(this)} 
                         className="bg-light-purple hover:bg-light-purple text-white purple-shadow font-bold py-2 px-4 mt-5 rounded-lg">
                             👁️‍🗨️ Read a story 👁️‍🗨️

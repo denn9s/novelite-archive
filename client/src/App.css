@@ -12,9 +12,10 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    background: #252424cc;
+    background: #252424ee;
     height: 100%;
     width: 100vw;
+    backdrop-filter: blur(2px);
 }
 
 .purple-shadow:hover {
