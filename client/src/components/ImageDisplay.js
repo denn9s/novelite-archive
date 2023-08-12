@@ -20,7 +20,7 @@ class ImageDisplay extends Component {
                 </p>
             )
         }
-        return(
+        return (
             <div className="text-center">
                 {image_elements}
             </div>

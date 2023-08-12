@@ -2,6 +2,7 @@ import './App.css';
 import { Component } from "react";
 
 import Story from './components/Story';
+import InfoModal from './components/InfoModal';
 
 class App extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class App extends Component {
         const { username, text, timestamp, link, attached_images } = this.state;
         return (
             <main>
-                <img src="profile.jpg" className="fixed rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0" alt="shiorin"></img>
+                <InfoModal />
                 <div className="text-center">
                     <h1 className="mt-24 text-5xl font-bold text-white">#ShiorinStories</h1>
                     <button onClick={this.getStory.bind(this)} 

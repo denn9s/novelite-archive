@@ -38,11 +38,9 @@ class Tweet extends Component {
                     <div className="w-full pt-1"></div>
                     <div className="w-full mb-8">
                         <div className="text-5xl text-light-purple text-left leading-tight h-3">“</div>
-                        <p className="text-xl text-white text-center px-5">
-                            <Linkify as="p" options={options}>
-                                {text}
-                            </Linkify>
-                        </p>
+                        <Linkify as="p" className="text-xl text-white text-center px-5" options={options}>
+                            {text}
+                        </Linkify>
                         <div className="text-5xl text-light-purple text-right leading-tight h-3 -mt-3">”</div>
                     </div>
                     <div className="w-full">
