@@ -3,6 +3,7 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 
 const Story = require('./models/story');
+const Count = require('./models/count');
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}?retryWrites=true&w=majority`)
     .then(() => {
@@ -15,17 +16,33 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
 
 async function getRandomStory(req, res) {
     const aggregation = await Story.aggregate([
-        { $sample: { size: 10 }}
+        { $sample: { size: 1 }}
     ]);
-    story = aggregation[0];
+    let story_object = aggregation[0];
     res.json({
-        username: story.username,
-        id: story.tweet_id,
-        text: story.text,
-        timestamp: story.timestamp.toLocaleDateString(),
-        link: story.link,
-        attached_images: story.attached_images,
+        username: story_object.username,
+        id: story_object.tweet_id,
+        text: story_object.text,
+        timestamp: story_object.timestamp.toLocaleDateString(),
+        link: story_object.link,
+        attached_images: story_object.attached_images,
     });
 }
 
+async function getReadStoryCount(req, res) {
+    let count_object = await Count.findOne({})
+    res.json({
+        count: count_object.count,
+    })
+}
+
+async function incrementReadStoryCount(req, res) {
+    let count_object = await Count.findOneAndUpdate({}, {$inc:{count:1}},{new:true});
+    res.json({
+        count: count_object.count,
+    })
+}
+
 exports.getRandomStory = getRandomStory;
+exports.getReadStoryCount = getReadStoryCount;
+exports.incrementReadStoryCount = incrementReadStoryCount;
