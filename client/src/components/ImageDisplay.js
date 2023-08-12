@@ -15,9 +15,14 @@ class ImageDisplay extends Component {
         );
         if (!image_elements.length) {
             return (
-                <p className="mx-auto text-white text-center">
-                    No images attached, you should try clicking the link in the tweet!
-                </p>
+                <>
+                    <p className="mx-auto text-white text-center">
+                        No images attached, maybe you'll find something by clicking the tweet date!
+                    </p>
+                    <p className="text-xs italic mx-auto text-white text-center">
+                        (This usually happens when the tweet is just a link to AO3, FanFiction.net, or whatever else)
+                    </p>
+                </>
             )
         }
         return (

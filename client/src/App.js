@@ -51,7 +51,7 @@ class App extends Component {
         let options = {
             method: 'POST'
         };
-        const res = await fetch('http://localhost:6969/api/storyReadCount', options);
+        await fetch('http://localhost:6969/api/storyReadCount', options);
         this.setState({
             count: this.state.count + 1,
         })

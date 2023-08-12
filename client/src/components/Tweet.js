@@ -45,9 +45,11 @@ class Tweet extends Component {
                     </div>
                     <div className="w-full">
                         <p className="text-xl text-light-purple font-bold">
-                            <a href={link}>@{username}</a>
+                            <a href={"https://twitter.com/" + username}>@{username}</a>
                         </p>
-                        <p className="text-xs text-white">{timestamp}</p>
+                        <p className="text-xs text-white">
+                        <a href={link}>{timestamp}</a>
+                        </p>
                     </div>
                 </div>
         )
