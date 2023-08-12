@@ -8,7 +8,7 @@ export default function Modal() {
                 alt="our goth"
                 onClick={() => setShowModal(true)}>
             </img>
-            <img src="info3.png" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 pointer-events-none"
+            <img src="info.png" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 pointer-events-none"
                 alt="info overlay">
             </img>
             {showModal ? (
@@ -31,37 +31,62 @@ export default function Modal() {
                                 <div className="text-white relative px-6 overflow-auto pb-4 flex-auto">
                                     <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
                                     <p className="py-3 text-white text-md">
-                                        This is made for our favorite Hololive archiver, <a href="https://www.youtube.com/@ShioriNovella" 
-                                        className="text-light-purple">Shiori Novella</a>, 
+                                        This was made for our favorite Hololive archiver,{' '}
+                                        <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
                                         with the intention of letting fans have an easier time of picking a random Novelite fanfiction to read. 
                                         Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
                                     </p>
                                     <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
                                     <p className="py-3 text-white text-md">
-                                        At midnight UTC everyday, new stories under the hashtag are automatically pulled in to a personal database, 
-                                        and stories are retrieved from there.
+                                        At midnight UTC everyday, new stories under the hashtag
+                                        <a href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> #ShiorinStories </a>
+                                        are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
                                         The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
                                     </p>
                                     <h6 className="text-3xl font-medium mt-4">Acknowledgements</h6>
                                     <ul className="list-disc list-inside py-3">
                                         <li className="ml-1">
-                                            <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons!
+                                            <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
                                         </li>
                                         <li className="ml-1">
-                                            All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity.
+                                            All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity!
                                         </li>
                                         <li>
                                             The developer of <a href="https://howsthevolu.me/" className="text-light-purple">How's the Volume?</a>{' '}
-                                            - the counter definitely took some inspiration from there, don't forget to check it out!
+                                            - the counter definitely took some inspiration from there, don't forget to check it out.
+                                        </li>
+                                        <li>
+                                            <a href="https://react.dev/" className="text-light-purple">React</a> 
+                                            {' '}and{' '}
+                                            <a href="https://tailwindcss.com/" className="text-light-purple">Tailwind</a> 
+                                            {' '}for front-end stuff,{' '}
+                                            <a href="https://expressjs.com/" className="text-light-purple">Express</a> for back-end stuff.
                                         </li>
                                     </ul>
+                                    <h6 className="text-3xl font-medium mt-4">Other Stuff</h6>
+                                    <p className="py-3 text-white text-md">
+                                        If there are any issues,{' '}
+                                        <a href="https://www.twitter.com/den_dayone" className="text-light-purple">let me know</a>!{' '}
+                                        This includes technical stuff, tweets that don't belong (since this is automated), 
+                                        or whatever else you can think of.
+                                        I don't normally use any of these frameworks/libraries, so hopefully it isn't too much of a mess. 
+                                        Always happy to chat
+                                        about it!
+                                    </p>
+
                                 </div>
                                 <div className="flex justify-center mb-2">
                                     <a href="https://www.twitter.com/den_dayone">
                                         <img src="yorick-small.png" alt="my crude drawing of yorick"/>
                                     </a>
                                 </div>
-                                <p className="flex justify-center mb-2 italic text-light-gray text-xs mt-0.5 mb-5">You can find me if you click on my poorly drawn Yorick!</p>
+                                <div className="flex justify-center italic text-light-gray text-xs mb-5 px-6 ">
+                                    <p className="text-center">
+                                        You can find me at
+                                        <span href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> @den_dayone </span>
+                                        (or by clicking my poorly-drawn Yorick)
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
