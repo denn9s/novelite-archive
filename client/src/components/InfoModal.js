@@ -4,7 +4,7 @@ export default function Modal() {
     const [showModal, setShowModal] = React.useState(false);
     return (
         <>
-            <img src="profile.jpg" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0"
+            <img src="profile.jpg" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 purple-shadow hover:cursor-pointer"
                 alt="shiorin"
                 onClick={() => setShowModal(true)}>
             </img>
@@ -35,7 +35,6 @@ export default function Modal() {
                     </div>
                 </>
             ) : null}
-
         </>
     );
 }

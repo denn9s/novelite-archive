@@ -17,6 +17,10 @@ html {
     width: 100vw;
 }
 
-.modal {
-    pointer-events:none;
+.purple-shadow:hover {
+    box-shadow:  0em 0em 1em #c3b9fa;
+}
+
+a:hover {
+    text-shadow:  0em 0em 1em #c3b9fa;
 }
