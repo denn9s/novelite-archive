@@ -31,7 +31,7 @@ export default function Modal() {
                                 <div className="text-white relative px-6 overflow-auto pb-4 flex-auto">
                                     <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
                                     <p className="py-3 text-white text-md">
-                                        This was made for our favorite Hololive archiver,{' '}
+                                        This was made for <s>my</s> our favorite Hololive archiver,{' '}
                                         <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
                                         with the intention of letting fans have an easier time of picking a random Novelite fanfiction to read. 
                                         Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!

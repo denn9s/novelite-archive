@@ -17,6 +17,7 @@ class App extends Component {
             attached_images: [],
             show: false,
             count: 0,
+            base_api_url: this.getBaseURL(),
         }
     }
 
@@ -26,11 +27,19 @@ class App extends Component {
             count: count,
         })
     }
+
+    getBaseURL() {
+        if (process.env.NODE_ENV === 'production') {
+            return 'http://api.novelit.es';
+        } else {
+            return 'http://localhost:6969';
+        }
+    }
     
 
     async getStory() {
         try {
-            const res = await fetch("http://api.novelit.es/randomStory");
+            const res = await fetch(`${this.state.base_api_url}/randomStory`);
             const story = await res.json();
             await this.incrementCount();
             this.setState({
@@ -48,7 +57,7 @@ class App extends Component {
 
     async getCount() {
         try {
-            const res = await fetch("http://api.novelit.es/storyReadCount");
+            const res = await fetch(`${this.state.base_api_url}/storyReadCount`);
             const count = await res.json();
             return count.count;
         } catch (e) {
@@ -60,7 +69,7 @@ class App extends Component {
         let options = {
             method: "POST"
         };
-        await fetch("http://api.novelit.es/storyReadCount", options);
+        await fetch(`${this.state.base_api_url}/storyReadCount`, options);
         this.setState({
             count: this.state.count + 1,
         })
