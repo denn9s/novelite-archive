@@ -18,6 +18,9 @@ async function getRandomStory(req, res) {
     const aggregation = await Story.aggregate([
         { $sample: { size: 1 }}
     ]);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     let story_object = aggregation[0];
     res.json({
         username: story_object.username,
@@ -31,6 +34,9 @@ async function getRandomStory(req, res) {
 
 async function getReadStoryCount(req, res) {
     let count_object = await Count.findOne({})
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json({
         count: count_object.count,
     })
@@ -38,6 +44,9 @@ async function getReadStoryCount(req, res) {
 
 async function incrementReadStoryCount(req, res) {
     let count_object = await Count.findOneAndUpdate({}, {$inc:{count:1}},{new:true});
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json({
         count: count_object.count,
     })

@@ -21,7 +21,7 @@ const scraper = new Scraper({
 });
 
 async function login() {
-    await scraper.login(process.env.TWITTER_USERNAME, process.env.TWITTER_PASSWORD);
+    await scraper.login(process.env.TWITTER_USERNAME, process.env.TWITTER_PASSWORD, process.env.TWITTER_EMAIL);
     console.log("logged in: " + await scraper.isLoggedIn());
 }
 
