@@ -30,7 +30,7 @@ class App extends Component {
 
     getBaseURL() {
         if (process.env.NODE_ENV === 'production') {
-            return 'http://api.novelit.es';
+            return 'https://api.novelit.es';
         } else {
             return 'http://localhost:6969';
         }
