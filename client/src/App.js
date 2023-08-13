@@ -30,7 +30,7 @@ class App extends Component {
 
     async getStory() {
         try {
-            const res = await fetch("http://localhost:6969/api/randomStory");
+            const res = await fetch("http://api.novelit.es/randomStory");
             const story = await res.json();
             await this.incrementCount();
             this.setState({
@@ -48,7 +48,7 @@ class App extends Component {
 
     async getCount() {
         try {
-            const res = await fetch('http://localhost:6969/api/storyReadCount');
+            const res = await fetch("http://api.novelit.es/storyReadCount");
             const count = await res.json();
             return count.count;
         } catch (e) {
@@ -58,9 +58,9 @@ class App extends Component {
 
     async incrementCount() {
         let options = {
-            method: 'POST'
+            method: "POST"
         };
-        await fetch('http://localhost:6969/api/storyReadCount', options);
+        await fetch("http://api.novelit.es/storyReadCount", options);
         this.setState({
             count: this.state.count + 1,
         })
