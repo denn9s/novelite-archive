@@ -2,7 +2,6 @@ import '../App.css';
 import { Component } from "react";
 
 import Story from '../components/Story';
-import InfoModal from '../components/InfoModal';
 import HeaderTypewriter from '../components/HeaderTypewriter';
 
 class Stories extends Component {
@@ -79,7 +78,6 @@ class Stories extends Component {
         const { username, text, timestamp, link, attached_images } = this.state;
         return (
             <main>
-                <InfoModal />
                 <div className="text-center">
                     <HeaderTypewriter text="#ShiorinStories" delay={70}/>
                     <p className="text-white">
