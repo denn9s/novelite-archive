@@ -3,6 +3,8 @@ const controller = require('./controller');
 
 var router = express.Router();
 
+router.route('/story/').get(controller.getStories);
+
 router.route('/randomStory/').get(controller.getRandomStory);
 
 router.route('/storyReadCount/').get(controller.getReadStoryCount);

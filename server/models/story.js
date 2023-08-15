@@ -18,10 +18,6 @@ const StorySchema = mongoose.Schema({
         type: Date,
         required: true,
     },
-    link: { 
-        type: String, 
-        required: true,
-    },
     attached_images: { 
         type: [String], 
         required: true,

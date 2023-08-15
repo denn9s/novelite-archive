@@ -12,7 +12,6 @@ class Stories extends Component {
             id: '',
             text: '',
             timestamp: '',
-            link: '',
             attached_images: [],
             show: false,
             count: 0,
@@ -45,7 +44,7 @@ class Stories extends Component {
                 username: story.username,
                 text: story.text,
                 timestamp: story.timestamp,
-                link: story.link,
+                link: `https://twitter.com/i/${story.id}`,
                 attached_images: story.attached_images,
                 show: true,
             });

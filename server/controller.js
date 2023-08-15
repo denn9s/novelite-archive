@@ -27,7 +27,6 @@ async function getRandomStory(req, res) {
         id: story_object.tweet_id,
         text: story_object.text,
         timestamp: story_object.timestamp.toLocaleDateString(),
-        link: story_object.link,
         attached_images: story_object.attached_images,
     });
 }
@@ -52,6 +51,15 @@ async function incrementReadStoryCount(req, res) {
     })
 }
 
+async function getStories(req, res) {
+    let stories = await Story.find().select(["-_id", "-__v"]);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.json(stories);
+}
+
 exports.getRandomStory = getRandomStory;
 exports.getReadStoryCount = getReadStoryCount;
 exports.incrementReadStoryCount = incrementReadStoryCount;
+exports.getStories = getStories;
