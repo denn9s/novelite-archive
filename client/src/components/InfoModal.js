@@ -4,11 +4,11 @@ export default function Modal() {
     const [showModal, setShowModal] = React.useState(false);
     return (
         <>
-            <img src="profile.jpg" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 border-2 border-light-purple purple-shadow hover:cursor-pointer"
+            <img src="../profile.jpg" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 border-2 border-light-purple purple-shadow hover:cursor-pointer"
                 alt="our goth"
                 onClick={() => setShowModal(true)}>
             </img>
-            <img src="info.png" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 pointer-events-none"
+            <img src="../info.png" className="absolute rounded-full max-w-[4em] mx-5 mb-5 top-5 right-0 pointer-events-none"
                 alt="info overlay">
             </img>
             {showModal ? (
