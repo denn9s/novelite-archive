@@ -1,6 +1,6 @@
 import './App.css';
 
-import Router from "./pages/Router";
+import Router from "./components/Router";
 import Navbar from "./components/Navbar";
 
 export default function App() {

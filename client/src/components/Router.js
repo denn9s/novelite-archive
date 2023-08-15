@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Stories from "./Stories";
-import Archive from "./Archive";
-// import Home from "./Home";
+import Stories from "../pages/StoryRandom";
+import Archive from "../pages/StoryArchive";
+import Home from "../pages/Home";
 
 export default function AppRouter() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Stories />} />
+                <Route path="/" element={<Home />} />
                 <Route path="stories" element={<Stories />} />
                 <Route path="stories/archive" element={<Archive />} />
             </Routes>
