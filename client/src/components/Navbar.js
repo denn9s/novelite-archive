@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
+import { Link } from "react-router-dom"
+
 
 import { BASE_TWITTER_URL } from "../utils/constants";
 
@@ -82,14 +84,14 @@ export default function Navbar() {
                         <Disclosure.Panel>
                             <div className="ml-5 lg:absolute">
                                 {navigation.map((item) => (
-                                    <Disclosure.Button
+                                    <Link to={item.href}>
+                                        <Disclosure.Button
                                         key={item.name}
-                                        as="a"
-                                        href={item.href}
                                         className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}
-                                    >
-                                        {item.name}
-                                    </Disclosure.Button>
+                                        >
+                                            {item.name}
+                                        </Disclosure.Button>
+                                    </Link>
                                 ))}
                             </div>
                         </Disclosure.Panel>
