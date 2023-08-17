@@ -31,6 +31,11 @@ a:hover {
     animation: dotty steps(1,end) 1s infinite;
     content: '';
 }
+
+.table-head:hover {
+    text-shadow:  0em 0em 1em #dad5f8;
+    cursor: pointer;
+}
   
 /* Not the best way, but it works for now ^_^ */
 @keyframes dotty {

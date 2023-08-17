@@ -4,6 +4,8 @@ import { Component } from "react";
 import Story from '../components/Story';
 import HeaderTypewriter from '../components/HeaderTypewriter';
 
+import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT } from '../utils/constants';
+
 class Stories extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,6 @@ class Stories extends Component {
             attached_images: [],
             show: false,
             count: 0,
-            base_api_url: this.getBaseURL(),
         }
     }
 
@@ -26,25 +27,16 @@ class Stories extends Component {
         })
     }
 
-    getBaseURL() {
-        if (process.env.NODE_ENV === 'production') {
-            return 'https://api.novelit.es';
-        } else {
-            return 'http://localhost:6969';
-        }
-    }
-    
-
     async getStory() {
         try {
-            const res = await fetch(`${this.state.base_api_url}/randomStory`);
+            const res = await fetch(`${BASE_ENDPOINT_URL}${RANDOM_STORY_ENDPOINT}`);
             const story = await res.json();
             await this.incrementCount();
             this.setState({
                 username: story.username,
                 text: story.text,
                 timestamp: story.timestamp,
-                link: `https://twitter.com/i/status/${story.id}`,
+                link: `${BASE_TWEET_LINK}${story.id}`,
                 attached_images: story.attached_images,
                 show: true,
             });
@@ -55,7 +47,7 @@ class Stories extends Component {
 
     async getCount() {
         try {
-            const res = await fetch(`${this.state.base_api_url}/storyReadCount`);
+            const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_READ_COUNT_ENDPOINT}`);
             const count = await res.json();
             return count.count;
         } catch (e) {
@@ -67,7 +59,7 @@ class Stories extends Component {
         let options = {
             method: "POST"
         };
-        await fetch(`${this.state.base_api_url}/storyReadCount`, options);
+        await fetch(`${BASE_ENDPOINT_URL}${STORY_READ_COUNT_ENDPOINT}`, options);
         this.setState({
             count: this.state.count + 1,
         })
@@ -89,7 +81,11 @@ class Stories extends Component {
                         className="bg-light-purple hover:bg-light-purple text-white purple-shadow font-bold py-2 px-4 mt-5 rounded-lg">
                             👁️‍🗨️ Read a story 👁️‍🗨️
                     </button>
-                    <p className="italic text-light-gray text-xs mt-0.5 mb-5">Novelites have read {this.state.count.toLocaleString()} stories!</p>
+                    <p className="italic text-light-gray text-xs mt-0.5 mb-5">
+                        Novelites have read 
+                        <span style={{ fontWeight: 'bold' }}> {this.state.count.toLocaleString()} </span>
+                        stories!
+                    </p>
                 </div>
                 {
                     this.state.show && 

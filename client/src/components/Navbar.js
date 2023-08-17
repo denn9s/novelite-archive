@@ -144,7 +144,7 @@ export default function Navbar() {
                                 </div>
                                 <div className="flex justify-center mb-2">
                                     <a href="https://www.twitter.com/den_dayone">
-                                        <img src="yorick-small.png" alt="my crude drawing of yorick"/>
+                                        <img src="../yorick-small.png" alt="my crude drawing of yorick"/>
                                     </a>
                                 </div>
                                 <div className="flex justify-center italic text-light-gray text-xs mb-5 px-6 ">
