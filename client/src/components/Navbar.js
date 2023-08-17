@@ -17,7 +17,12 @@ export default function Navbar() {
     let [isOpen, setIsOpen] = React.useState(false)
 
     function playWink(e) {
-        const images = ['../shiori-wink.gif', '../shiori-neutral.gif']
+        const images = [
+            'https://media.tenor.com/psHK8ymKLakAAAAM/shiori-novella-shiori.gif', 
+            'https://media.tenor.com/l9Ob9hBq0c4AAAAd/shiori-novella-shiori.gif',
+            'https://media.tenor.com/36p7nM_AozsAAAAC/shiori-novella-shiori.gif',
+            'https://media.tenor.com/YA44Zr9Y-QAAAAAd/shiori-novella-shiori.gif',
+        ];
         const random = Math.floor(Math.random() * images.length);
         e.target.src = images[random];
     }
