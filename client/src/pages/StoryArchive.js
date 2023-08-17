@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, BASE_TWITTER_URL, STORY_ENDPOINT } from '../utils/constants';
 
 const Archive = () => {
-    let username = "username";
-    let timestamp = "timestamp";
-    let date = "date";
+    let username = "Username";
+    let date = "Date";
+
+    let username_field = "username";
+    let date_field = "timestamp";
 
     let [original_table, setOriginalTable] = useState();
     let [table, setTable] = useState();
@@ -21,10 +23,10 @@ const Archive = () => {
     const sort = (field) => {
         if (table_sort.ascending) {
             setTableSort({ascending: false, descending: true})
-            if (field === username) {
+            if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() < b[field].toUpperCase()) ? 1 : -1));
                 setTableHeaders({...table_headers, username: `${username} ↓`, date: date})
-            } else if (field === timestamp) {
+            } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) < Date.parse(b[field])) ? 1 : -1));
                 setTableHeaders({...table_headers, username: username, date: `${date} ↓`})
             }
@@ -34,10 +36,10 @@ const Archive = () => {
             setTable(original_table);
         } else {
             setTableSort({ascending: true, descending: false})
-            if (field === username) {
+            if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() > b[field].toUpperCase()) ? 1 : -1));
                 setTableHeaders({...table_headers, username: `${username} ↑`, date: date})
-            } else if (field === timestamp) {
+            } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) > Date.parse(b[field])) ? 1 : -1));
                 setTableHeaders({...table_headers, username: username, date: `${date} ↑`})
             }
@@ -70,16 +72,17 @@ const Archive = () => {
 
     return (
         <>
-            <h1 className="my-5 text-5xl font-bold text-white text-center">#ShiorinStories Archive</h1>
+            <h1 className="mt-5 text-5xl font-bold text-white text-center">#ShiorinStories Archive</h1>
+            <p className="text-center text-light-gray text-s mt-0.5">Total stories: {table.length}</p>
             <div className="flex items-center justify-center">
                 <div className="overflow-auto h-[calc(100vh-200px)] rounded-lg">
                     <table className="border border-light-gray border-spacing-4 rounded-md">
                         <thead className="text-white bg-light-purple sticky top-0">
                             <tr>
-                                <th scope="col" className="table-head" onClick={() => sort(username)}>
+                                <th scope="col" className="table-head" onClick={() => sort(username_field)}>
                                     {table_headers.username}
                                 </th>
-                                <th scope="col" className="table-head" onClick={() => sort(timestamp)}>
+                                <th scope="col" className="table-head" onClick={() => sort(date_field)}>
                                     {table_headers.date}
                                 </th>
                                 <th scope="col">

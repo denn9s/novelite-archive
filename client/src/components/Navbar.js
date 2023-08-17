@@ -2,6 +2,8 @@ import React from "react";
 
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
 
+import { BASE_TWITTER_URL } from "../utils/constants";
+
 const navigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Stories', href: '/stories' },
@@ -99,13 +101,13 @@ export default function Navbar() {
                             <p className="py-3 text-white text-md">
                                 This was made for <s>my</s> our favorite Hololive archiver,{' '}
                                 <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
-                                with the intention of letting fans have an easier time of picking a random Novelite fanfiction to read.
+                                with the intention of letting fans have an easier time of picking a random Novelite-written fanfiction to read.
                                 Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
                             </p>
                             <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
                             <p className="py-3 text-white text-md">
                                 At midnight UTC everyday, new stories under the hashtag
-                                <a href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> #ShiorinStories </a>
+                                <a href={`${BASE_TWITTER_URL}/hashtag/ShiorinStories`} className="text-light-purple"> #ShiorinStories </a>
                                 are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
                                 The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
                             </p>
@@ -119,7 +121,7 @@ export default function Navbar() {
                                 </li>
                                 <li>
                                     The developer of <a href="https://howsthevolu.me/" className="text-light-purple">How's the Volume?</a>{' '}
-                                    - the counter definitely took some inspiration from there, don't forget to check it out.
+                                    - the counter definitely took some inspiration from there, don't forget to check it out!
                                 </li>
                                 <li>
                                     <a href="https://react.dev/" className="text-light-purple">React</a>
@@ -129,27 +131,29 @@ export default function Navbar() {
                                     <a href="https://expressjs.com/" className="text-light-purple">Express</a> for back-end stuff.
                                 </li>
                             </ul>
-                            <h6 className="text-3xl font-medium mt-4">Other Stuff</h6>
+                            <h6 className="text-3xl font-medium mt-4">Other stuff</h6>
                             <p className="py-3 text-white text-md">
                                 If there are any issues,{' '}
-                                <a href="https://www.twitter.com/den_dayone" className="text-light-purple">let me know</a>!{' '}
-                                This includes technical stuff, tweets that don't belong (since this is automated),
-                                or whatever else you can think of.
+                                <a href={`${BASE_TWITTER_URL}/den_dayone`} className="text-light-purple">let me know</a>!{' '}
+                                This includes technical stuff, tweets that don't belong (since this is automated), or whatever else you can think of.
                                 I don't normally use any of these frameworks/libraries, so hopefully it isn't too much of a mess.
-                                Always happy to chat
-                                about it!
+                                Always happy to chat about it!
+                            </p>
+                            <p className="italic text-light-gray text-xs">
+                                FYI: There are some plans to add archive pages for assets, book suggestions, game suggestions, and more!
+                                I don't think I can keep up with all of it myself, so let me know if you'd like to help out!
                             </p>
 
                         </div>
                         <div className="flex justify-center mb-2">
-                            <a href="https://www.twitter.com/den_dayone">
+                            <a href={`${BASE_TWITTER_URL}/den_dayone`}>
                                 <img src="../yorick-small.png" alt="my crude drawing of yorick" />
                             </a>
                         </div>
                         <div className="flex justify-center italic text-light-gray text-xs mb-5 px-6 ">
                             <p className="text-center">
                                 You can find me at
-                                <span href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> @den_dayone </span>
+                                <a href={`${BASE_TWITTER_URL}/ShiorinStories`} className="text-light-purple"> @den_dayone </a>
                                 (or by clicking my poorly-drawn Yorick)
                             </p>
                         </div>

@@ -4,7 +4,7 @@ import { Component } from "react";
 import Story from '../components/Story';
 import HeaderTypewriter from '../components/HeaderTypewriter';
 
-import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT } from '../utils/constants';
+import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT, BASE_TWITTER_URL } from '../utils/constants';
 
 class Stories extends Component {
     constructor(props) {
@@ -75,7 +75,7 @@ class Stories extends Component {
                         Subscribe to Shiori's {' '}
                         <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">YouTube</a>{' '} 
                         and follow her on {' '}
-                        <a href="https://www.twitter.com/shiorinovella" className="text-light-purple">Twitter</a>!
+                        <a href={`${BASE_TWITTER_URL}/shiorinovella`} className="text-light-purple">Twitter</a>!
                     </p>
                     <button onClick={this.getStory.bind(this)} 
                         className="bg-light-purple hover:bg-light-purple text-white purple-shadow font-bold py-2 px-4 mt-5 rounded-lg">
