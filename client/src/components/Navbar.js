@@ -14,6 +14,16 @@ const navigation = [
 export default function Navbar() {
     let [isOpen, setIsOpen] = React.useState(false)
 
+    function playWink(e) {
+        const images = ['../shiori-wink.gif', '../shiori-neutral.gif']
+        const random = Math.floor(Math.random() * images.length);
+        e.target.src = images[random];
+    }
+
+    function stopWink(e) {
+        e.target.src = "../profile.jpg";
+    }
+
     return (
         <>
             <Disclosure as="nav" className="bg-gray-800">
@@ -23,7 +33,7 @@ export default function Navbar() {
                             <div className="relative flex h-16 items-center justify-between">
                                 <div className="absolute inset-y-0 left-0 flex items-center">
                                     {/* mobile menu icons*/}
-                                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white">
+                                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2">
                                         <span className="absolute -inset-0.5" />
                                         <span className="sr-only">Open main menu</span>
                                         {open ? (
@@ -39,18 +49,23 @@ export default function Navbar() {
                                 </div>
                                 <div className="flex flex-1 items-center justify-center sm:items-stretch mt-[1em]">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <img
-                                            className="h-[4em] w-auto rounded-full"
-                                            src="../profile.jpg"
-                                            alt="Your Company"
-                                        />
+                                        <a href="/">
+
+                                            <img
+                                                className="h-[5em] w-auto rounded-full border-2 border-white purple-shadow"
+                                                src="../profile.jpg"
+                                                alt="the best archiver"
+                                                onMouseOver={playWink}
+                                                onMouseLeave={stopWink}
+                                            />
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:pr-0">
                                     {/* info modal */}
                                     <Menu as="div" className="relative">
                                         <div>
-                                            <Menu.Button className="relative flex rounded-full" onClick={() => setIsOpen(true)}>
+                                            <Menu.Button className="relative flex rounded-full purple-shadow" onClick={() => setIsOpen(true)}>
                                                 <span className="absolute -inset-1.5" />
                                                 <img
                                                     className="rounded-full h-[2em]"
