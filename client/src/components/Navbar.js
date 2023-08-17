@@ -63,13 +63,13 @@ export default function Navbar() {
                         </div>
 
                         <Disclosure.Panel>
-                            <div className="ml-5 py-2 sm:absolute bg-light-gray">
+                            <div className="ml-5 lg:absolute">
                                 {navigation.map((item) => (
                                     <Disclosure.Button
                                         key={item.name}
                                         as="a"
                                         href={item.href}
-                                        className={'text-white hover:text-light-purple block rounded-md px-6 py-2 text-base font-medium'}
+                                        className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}
                                     >
                                         {item.name}
                                     </Disclosure.Button>
@@ -80,83 +80,81 @@ export default function Navbar() {
                 )}
             </Disclosure>
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-                 <div className="flex justify-center items-center overflow-y-auto fixed overflow-x-hidden inset-0">
-                        <div id="modal-wrapper" className="modal-wrapper" onClick={() => setIsOpen(false)}/>
-                        <div className="sm:max-w-[70%] md:max-w-[60%] l:max-w-[50%] xl:max-w-[40%] my-auto p-[1em] md:py-[10em]" onClick={() => setIsOpen(false)}>
-                            <div className="rounded-lg shadow-lg relative flex flex-col w-full bg-mid-gray border-x-4 border-light-purple">
-                                <div className="mx-2 flex items-start justify-between p-3">
-                                    <h3 className="text-white text-4xl font-bold mr-5">
-                                        About / Info
-                                    </h3>
-                                    <button
-                                        className="text-white text-3xl leading-none font-semibold outline-none focus:outline-none"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        <span className="block text-white opacity-50">×</span>
-                                    </button>
-                                </div> 
-                                <div className="text-white relative px-6 overflow-auto pb-4 flex-auto">
-                                    <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
-                                    <p className="py-3 text-white text-md">
-                                        This was made for <s>my</s> our favorite Hololive archiver,{' '}
-                                        <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
-                                        with the intention of letting fans have an easier time of picking a random Novelite fanfiction to read. 
-                                        Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
-                                    </p>
-                                    <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
-                                    <p className="py-3 text-white text-md">
-                                        At midnight UTC everyday, new stories under the hashtag
-                                        <a href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> #ShiorinStories </a>
-                                        are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
-                                        The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
-                                    </p>
-                                    <h6 className="text-3xl font-medium mt-4">Acknowledgements</h6>
-                                    <ul className="list-disc list-inside py-3">
-                                        <li className="ml-1">
-                                            <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
-                                        </li>
-                                        <li className="ml-1">
-                                            All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity!
-                                        </li>
-                                        <li>
-                                            The developer of <a href="https://howsthevolu.me/" className="text-light-purple">How's the Volume?</a>{' '}
-                                            - the counter definitely took some inspiration from there, don't forget to check it out.
-                                        </li>
-                                        <li>
-                                            <a href="https://react.dev/" className="text-light-purple">React</a> 
-                                            {' '}and{' '}
-                                            <a href="https://tailwindcss.com/" className="text-light-purple">Tailwind</a> 
-                                            {' '}for front-end stuff,{' '}
-                                            <a href="https://expressjs.com/" className="text-light-purple">Express</a> for back-end stuff.
-                                        </li>
-                                    </ul>
-                                    <h6 className="text-3xl font-medium mt-4">Other Stuff</h6>
-                                    <p className="py-3 text-white text-md">
-                                        If there are any issues,{' '}
-                                        <a href="https://www.twitter.com/den_dayone" className="text-light-purple">let me know</a>!{' '}
-                                        This includes technical stuff, tweets that don't belong (since this is automated), 
-                                        or whatever else you can think of.
-                                        I don't normally use any of these frameworks/libraries, so hopefully it isn't too much of a mess. 
-                                        Always happy to chat
-                                        about it!
-                                    </p>
+                <div className="flex justify-center items-center fixed overflow-x-hidden inset-0">
+                    <div id="modal-wrapper" className="modal-wrapper" onClick={() => setIsOpen(false)} />
+                    <div className="rounded-lg shadow-lg relative flex flex-col w-full bg-mid-gray border-x-4 border-light-purple sm:max-w-[70%] md:max-w-[60%] l:max-w-[50%] xl:max-w-[40%] my-auto">
+                        <div className="mx-2 flex items-start justify-between p-3">
+                            <h3 className="text-white text-4xl font-bold mr-5">
+                                About / Info
+                            </h3>
+                            <button
+                                className="text-white text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <span className="block text-white opacity-50">×</span>
+                            </button>
+                        </div>
+                        <div className="text-white relative px-6 overflow-auto pb-4 flex-auto">
+                            <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
+                            <p className="py-3 text-white text-md">
+                                This was made for <s>my</s> our favorite Hololive archiver,{' '}
+                                <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
+                                with the intention of letting fans have an easier time of picking a random Novelite fanfiction to read.
+                                Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
+                            </p>
+                            <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
+                            <p className="py-3 text-white text-md">
+                                At midnight UTC everyday, new stories under the hashtag
+                                <a href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> #ShiorinStories </a>
+                                are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
+                                The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
+                            </p>
+                            <h6 className="text-3xl font-medium mt-4">Acknowledgements</h6>
+                            <ul className="list-disc list-inside py-3">
+                                <li className="ml-1">
+                                    <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
+                                </li>
+                                <li className="ml-1">
+                                    All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity!
+                                </li>
+                                <li>
+                                    The developer of <a href="https://howsthevolu.me/" className="text-light-purple">How's the Volume?</a>{' '}
+                                    - the counter definitely took some inspiration from there, don't forget to check it out.
+                                </li>
+                                <li>
+                                    <a href="https://react.dev/" className="text-light-purple">React</a>
+                                    {' '}and{' '}
+                                    <a href="https://tailwindcss.com/" className="text-light-purple">Tailwind</a>
+                                    {' '}for front-end stuff,{' '}
+                                    <a href="https://expressjs.com/" className="text-light-purple">Express</a> for back-end stuff.
+                                </li>
+                            </ul>
+                            <h6 className="text-3xl font-medium mt-4">Other Stuff</h6>
+                            <p className="py-3 text-white text-md">
+                                If there are any issues,{' '}
+                                <a href="https://www.twitter.com/den_dayone" className="text-light-purple">let me know</a>!{' '}
+                                This includes technical stuff, tweets that don't belong (since this is automated),
+                                or whatever else you can think of.
+                                I don't normally use any of these frameworks/libraries, so hopefully it isn't too much of a mess.
+                                Always happy to chat
+                                about it!
+                            </p>
 
-                                </div>
-                                <div className="flex justify-center mb-2">
-                                    <a href="https://www.twitter.com/den_dayone">
-                                        <img src="../yorick-small.png" alt="my crude drawing of yorick"/>
-                                    </a>
-                                </div>
-                                <div className="flex justify-center italic text-light-gray text-xs mb-5 px-6 ">
-                                    <p className="text-center">
-                                        You can find me at
-                                        <span href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> @den_dayone </span>
-                                        (or by clicking my poorly-drawn Yorick)
-                                    </p>
-                                </div>
-                            </div>
+                        </div>
+                        <div className="flex justify-center mb-2">
+                            <a href="https://www.twitter.com/den_dayone">
+                                <img src="../yorick-small.png" alt="my crude drawing of yorick" />
+                            </a>
+                        </div>
+                        <div className="flex justify-center italic text-light-gray text-xs mb-5 px-6 ">
+                            <p className="text-center">
+                                You can find me at
+                                <span href="https://twitter.com/hashtag/ShiorinStories" className="text-light-purple"> @den_dayone </span>
+                                (or by clicking my poorly-drawn Yorick)
+                            </p>
                         </div>
                     </div>
+                </div>
             </Dialog>
         </>
     )

@@ -13,7 +13,7 @@ html {
     top: 0;
     left: 0;
     background: #252424ee;
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     backdrop-filter: blur(2px);
 }
