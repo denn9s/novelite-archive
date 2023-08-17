@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Linkify from "linkify-react";
 import "linkify-plugin-hashtag";
 
+import { BASE_TWITTER_URL } from '../utils/constants';
+
 class Tweet extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +29,7 @@ class Tweet extends Component {
             },
             formatHref: function(href, type) {
                 if (type === 'hashtag') {
-                    return href = 'https://twitter.com/hashtag/' + href.substr(1);
+                    return href = `${BASE_TWITTER_URL}hashtag/${href.substr(1)}`;
                 } else {
                     return href;
                 }
@@ -45,7 +47,7 @@ class Tweet extends Component {
                     </div>
                     <div className="w-full">
                         <p className="text-xl text-light-purple font-bold">
-                            <a href={"https://twitter.com/" + username}>@{username}</a>
+                            <a href={`${BASE_TWITTER_URL}username`}>@{username}</a>
                         </p>
                         <p className="text-xs text-white">
                         <a href={link}>{timestamp}</a>

@@ -13,7 +13,7 @@ html {
     top: 0;
     left: 0;
     background: #252424ee;
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     backdrop-filter: blur(2px);
 }
@@ -28,17 +28,17 @@ a:hover {
 
 .loading::after {
     display: inline-block;
-    animation: dotty steps(1,end) 1s infinite;
+    animation: ellipses-animation steps(1,end) 1s infinite;
     content: '';
 }
 
 .table-head:hover {
-    text-shadow:  0em 0em 1em #dad5f8;
+    text-shadow:  0em 0em 1em #ffffff;
     cursor: pointer;
 }
   
 /* Not the best way, but it works for now ^_^ */
-@keyframes dotty {
+@keyframes ellipses-animation {
     0%   { content: ''; }
     25%  { content: '.'; }
     50%  { content: '..'; }
