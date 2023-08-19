@@ -3,8 +3,9 @@ import React from "react";
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
 import { Link } from "react-router-dom"
 
-
 import { BASE_TWITTER_URL } from "../utils/constants";
+
+import "../styles/navbar.css"
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -55,7 +56,7 @@ export default function Navbar() {
                                 </div>
                                 <div className="flex flex-1 items-center justify-center sm:items-stretch mt-[1em]">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <a href="/">
+                                        <Link to="/">
                                             <img
                                                 className="h-[5em] mt-[0.5em] w-auto rounded-full border-2 border-white purple-shadow"
                                                 src="../profile.jpg"
@@ -63,7 +64,7 @@ export default function Navbar() {
                                                 onMouseOver={playWink}
                                                 onMouseLeave={stopWink}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:pr-0">

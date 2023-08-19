@@ -13,18 +13,18 @@ const Home = () => {
             <div className="relative justify-center flex mt-10 mx-6">
                 <div className="home-buttons-container">
                         <Link to="/stories">
-                            <button className="whitespace-nowrap text-white purple-shadow p-1 rounded-lg vn-choice">
+                            <button className="purple-shadow p-1 vn-button-style">
                                 "A story."
                             </button>
                         </Link>
                         <div></div>
                         <Link to="/stories/archive">
-                            <button className="whitespace-nowrap text-white purple-shadow p-1 my-1 rounded-lg vn-choice">
+                            <button className="purple-shadow p-1 my-1 vn-button-style">
                                 "The story archive."
                             </button>
                         </Link>
                     </div>
-                <img src="homepage-vn.png" alt="shiori dialogue"/>
+                <img src="homepage-vn.png" alt="shiori dialogue" className="rounded-lg mx-auto border-x-4 border-light-purple"/>
             </div>
             
             <div>
