@@ -1,12 +1,12 @@
-.loading::after {
-    display: inline-block;
-    animation: ellipses-animation steps(1,end) 1s infinite;
-    content: '';
+.table-head:hover {
+    cursor: pointer;
+    background-color: #8570ff9a;
 }
 
-.table-head:hover {
-    text-shadow:  0em 0em 1em #ffffff;
-    cursor: pointer;
+.loading::after {
+    display: inline-block;
+    animation: ellipses-animation steps(1, end) 1s infinite;
+    content: '';
 }
   
 /* Not the best way, but it works for now ^_^ */

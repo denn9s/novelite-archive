@@ -26,19 +26,19 @@ const Archive = () => {
             setTableSort({ascending: false, descending: true})
             if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() < b[field].toUpperCase()) ? 1 : -1));
-                setTableHeaders({...table_headers, username: `${username_display} ↓`, date: date_display})
+                setTableHeaders({...table_headers, username: `${username_display} ▾`, date: date_display})
             } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) < Date.parse(b[field])) ? 1 : -1));
-                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ↓`})
+                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▾`})
             }
         } else {
             setTableSort({ascending: true, descending: false})
             if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() > b[field].toUpperCase()) ? 1 : -1));
-                setTableHeaders({...table_headers, username: `${username_display} ↑`, date: date_display})
+                setTableHeaders({...table_headers, username: `${username_display} ▴`, date: date_display})
             } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) > Date.parse(b[field])) ? 1 : -1));
-                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ↑`})
+                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▴`})
             }
         }
     };
@@ -49,6 +49,7 @@ const Archive = () => {
                 const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_ENDPOINT}`)
                 const stories = await res.json();
                 setTable([...stories].sort((a, b) => (Date.parse(a[date_field]) < Date.parse(b[date_field])) ? 1 : -1));
+                setTableHeaders({...table_headers, date: `${date_display} ▾`})
             } catch (e) {
                 console.log(e);
             }
