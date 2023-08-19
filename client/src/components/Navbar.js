@@ -20,7 +20,6 @@ export default function Navbar() {
         const images = [
             'https://media.tenor.com/psHK8ymKLakAAAAM/shiori-novella-shiori.gif', 
             'https://media.tenor.com/l9Ob9hBq0c4AAAAd/shiori-novella-shiori.gif',
-            'https://media.tenor.com/36p7nM_AozsAAAAC/shiori-novella-shiori.gif',
             'https://media.tenor.com/YA44Zr9Y-QAAAAAd/shiori-novella-shiori.gif',
         ];
         const random = Math.floor(Math.random() * images.length);
@@ -57,9 +56,8 @@ export default function Navbar() {
                                 <div className="flex flex-1 items-center justify-center sm:items-stretch mt-[1em]">
                                     <div className="flex flex-shrink-0 items-center">
                                         <a href="/">
-
                                             <img
-                                                className="h-[5em] w-auto rounded-full border-2 border-white purple-shadow"
+                                                className="h-[5em] mt-[0.5em] w-auto rounded-full border-2 border-white purple-shadow"
                                                 src="../profile.jpg"
                                                 alt="the best archiver"
                                                 onMouseOver={playWink}
