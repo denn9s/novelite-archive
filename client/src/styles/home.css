@@ -1,0 +1,36 @@
+.home-buttons-container {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(0%, 10%);
+    text-align: center;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+}
+
+@media (min-width: 640px) {
+    .home-buttons-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem; /* 16px */
+        line-height: 1.5rem; /* 24px */
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-buttons-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.125em; /* 16px */
+        line-height: 1.75rem; /* 24px */
+    }
+}
+
+.vn-choice {
+    background: transparent;
+    border: 2px solid #ffffff30;
+}
