@@ -78,10 +78,10 @@ class Stories extends Component {
                         <a href={`${BASE_TWITTER_URL}/shiorinovella`} className="text-light-purple">Twitter</a>!
                     </p>
                     <button onClick={this.getStory.bind(this)} 
-                        className="bg-light-purple hover:bg-light-purple text-white purple-shadow font-bold py-2 px-4 mt-5 rounded-lg">
-                            👁️‍🗨️ Read a story 👁️‍🗨️
+                        className="purple-shadow py-2 px-4 mt-5 vn-button-style button-white-shadow">
+                            "Let's read a story."
                     </button>
-                    <p className="italic text-light-gray text-xs mt-0.5 mb-5">
+                    <p className="italic text-light-gray text-xs mt-1 mb-5">
                         Novelites have read 
                         <span style={{ fontWeight: 'bold' }}> {this.state.count.toLocaleString()} </span>
                         stories!

@@ -3,8 +3,9 @@ import React from "react";
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
 import { Link } from "react-router-dom"
 
-
 import { BASE_TWITTER_URL } from "../utils/constants";
+
+import "../styles/navbar.css"
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -20,7 +21,6 @@ export default function Navbar() {
         const images = [
             'https://media.tenor.com/psHK8ymKLakAAAAM/shiori-novella-shiori.gif', 
             'https://media.tenor.com/l9Ob9hBq0c4AAAAd/shiori-novella-shiori.gif',
-            'https://media.tenor.com/36p7nM_AozsAAAAC/shiori-novella-shiori.gif',
             'https://media.tenor.com/YA44Zr9Y-QAAAAAd/shiori-novella-shiori.gif',
         ];
         const random = Math.floor(Math.random() * images.length);
@@ -56,16 +56,15 @@ export default function Navbar() {
                                 </div>
                                 <div className="flex flex-1 items-center justify-center sm:items-stretch mt-[1em]">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <a href="/">
-
+                                        <Link to="/">
                                             <img
-                                                className="h-[5em] w-auto rounded-full border-2 border-white purple-shadow"
+                                                className="h-[5em] mt-[0.5em] w-auto rounded-full border-2 border-white purple-shadow"
                                                 src="../profile.jpg"
                                                 alt="the best archiver"
                                                 onMouseOver={playWink}
                                                 onMouseLeave={stopWink}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:pr-0">
@@ -123,12 +122,13 @@ export default function Navbar() {
                             <p className="py-3 text-white text-md">
                                 This was made for <s>my</s> our favorite Hololive archiver,{' '}
                                 <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
-                                with the intention of letting fans have an easier time of picking a random Novelite-written fanfiction to read.
-                                Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
+                                with the intention of letting fans have an easier time browsing through archived fanfiction to read{' '}
+                                (and eventually more things).{' '}
+                                Scrolling through hashtags can be tedious, but I hope this can make it a bit less of a headache!
                             </p>
                             <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
                             <p className="py-3 text-white text-md">
-                                At midnight UTC everyday, new stories under the hashtag
+                                For automated story archiving, at midnight UTC everyday, new stories under the hashtag
                                 <a href={`${BASE_TWITTER_URL}/hashtag/ShiorinStories`} className="text-light-purple"> #ShiorinStories </a>
                                 are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
                                 The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
