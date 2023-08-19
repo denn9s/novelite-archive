@@ -122,12 +122,13 @@ export default function Navbar() {
                             <p className="py-3 text-white text-md">
                                 This was made for <s>my</s> our favorite Hololive archiver,{' '}
                                 <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
-                                with the intention of letting fans have an easier time of picking a random Novelite-written fanfiction to read.
-                                Scrolling through the hashtag can be tedious, but I hope this can make it a bit less of a headache!
+                                with the intention of letting fans have an easier time browsing through archived fanfiction to read{' '}
+                                (and eventually more things).{' '}
+                                Scrolling through hashtags can be tedious, but I hope this can make it a bit less of a headache!
                             </p>
                             <h6 className="text-3xl font-medium mt-4">How does it work?</h6>
                             <p className="py-3 text-white text-md">
-                                At midnight UTC everyday, new stories under the hashtag
+                                For automated story archiving, at midnight UTC everyday, new stories under the hashtag
                                 <a href={`${BASE_TWITTER_URL}/hashtag/ShiorinStories`} className="text-light-purple"> #ShiorinStories </a>
                                 are automatically pulled in to a personal database, and stories are retrieved from there instead of using Twitter's search functionality.
                                 The source code is located on <a href="https://github.com/denn9s/shiorin-stories" className="text-light-purple">GitHub</a>!
