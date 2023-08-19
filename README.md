@@ -1,20 +1,16 @@
-# #ShiorinStories
+# Novelite Archive
 
 <img src="https://i.imgur.com/bixtmXc.png"  align="right"  alt="tiny yorick">
 
-[#ShiorinStories](https://twitter.com/hashtag/ShiorinStories) is small website that was created with the intention of making it easier (and possibly more fun) to access fanfictions written for [Shiori Novella](https://youtube.com/@ShioriNovella). It pulls some data from Twitter and stores it in a database, letting users pull a random story to read, which proves to be a bit difficult with the Twitter search function.
+The [Novelite Archive](https://novelit.es) is small website that was created with the intention of making it easier to access some archived stories written for [Shiori Novella](https://youtube.com/@ShioriNovella) (and eventually more things).
 
-## Usage
-
-Click the "Read a Story" button
-
-## How it works
+## How story archiving works
 
 It's fairly simple! Every day at 00:00 UTC, a job is triggered that checks for all the tweets under the hashtag [#ShiorinStories](https://twitter.com/hashtag/ShiorinStories) from the previous run, then pulls in any new stories into a database. When the front-end makes requests for data, it is retrieved from the database - rather than making an API call to Twitter (except the image links, those are not hosted by me, unfortunately).
 
 ## Possible future changes
+- [x] Make a directory for all stories, so they're more easily accessed
 - [ ] Automatic cleanup of dead links, which usually mean a deleted tweet
-- [ ] Make a directory for all stories, so they're more easily accessed
 - [ ] Improve the styling (maybe a less boring background, different font, adding the author's avatar, etc.)
 - [ ] Hosting the images (maybe)
 

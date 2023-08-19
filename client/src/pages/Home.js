@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <>
             <div className="text-center">
-                <h1 className="mt-5 text-5xl font-bold text-white">Novelites' Archive</h1>
+                <h1 className="mt-5 text-5xl font-bold text-white">Novelite Archive</h1>
                 <p className="text-center text-light-gray text-s">Welcome to the (unofficial) Shiorin archive!</p>
             </div>
             
