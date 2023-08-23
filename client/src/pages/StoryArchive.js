@@ -100,7 +100,7 @@ const Archive = () => {
                                                 {new Date(tweet.timestamp).toLocaleDateString('en-us', { month: "short", day: "numeric", year: "numeric" })}
                                             </td>
                                             <td className="whitespace-nowrap px-6 py-2">
-                                                <a href={`${BASE_TWEET_LINK}${tweet.tweet_id}`}>
+                                                <a href={`${BASE_TWEET_LINK}/${tweet.tweet_id}`}>
                                                     {`/status/${tweet.tweet_id}`}
                                                 </a>
                                             </td>
