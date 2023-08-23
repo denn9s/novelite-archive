@@ -47,7 +47,7 @@ class Tweet extends Component {
                     </div>
                     <div className="w-full">
                         <p className="text-xl text-light-purple font-bold">
-                            <a href={`${BASE_TWITTER_URL}/username`}>@{username}</a>
+                            <a href={`${BASE_TWITTER_URL}/${username}`}>@{username}</a>
                         </p>
                         <p className="text-xs text-white">
                         <a href={link}>{timestamp}</a>
