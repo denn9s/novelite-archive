@@ -92,7 +92,7 @@ const Archive = () => {
                                     {table.map(tweet => (
                                         <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque">
                                             <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
-                                                <a href={`${BASE_TWITTER_URL}${tweet.username}`}>
+                                                <a href={`${BASE_TWITTER_URL}/${tweet.username}`}>
                                                     <span className="text-lighter-purple">@</span>{tweet.username}
                                                 </a>
                                             </td>
