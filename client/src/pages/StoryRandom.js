@@ -36,7 +36,7 @@ class Stories extends Component {
                 username: story.username,
                 text: story.text,
                 timestamp: story.timestamp,
-                link: `${BASE_TWEET_LINK}${story.id}`,
+                link: `${BASE_TWEET_LINK}/${story.id}`,
                 attached_images: story.attached_images,
                 show: true,
             });
