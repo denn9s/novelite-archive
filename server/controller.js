@@ -59,7 +59,17 @@ async function getStories(req, res) {
     res.json(stories);
 }
 
+async function getSingleStory(req, res) {
+    const { tweet_id } = req.params;
+    const story = await Story.findOne({tweet_id: tweet_id}).select(["-_id", "-__v"]);;
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.json(story)
+}
+
 exports.getRandomStory = getRandomStory;
 exports.getReadStoryCount = getReadStoryCount;
 exports.incrementReadStoryCount = incrementReadStoryCount;
 exports.getStories = getStories;
+exports.getSingleStory = getSingleStory;
