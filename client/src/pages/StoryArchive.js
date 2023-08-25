@@ -7,9 +7,11 @@ import '../styles/archive.css';
 const Archive = () => {
     let username_display = "Username";
     let date_display = "Date";
+    let read_display = "Read";
 
     let username_field = "username";
     let date_field = "timestamp";
+    let read_field = "read_flag";
 
     let [table, setTable] = useState();
     let [selected_stories, setSelectedStories] = useState(
@@ -18,45 +20,58 @@ const Archive = () => {
         : JSON.parse(localStorage.getItem("selected_stories"))
     );
 
-    let [table_sort, setTableSort] = useState({
-        ascending: false,
-        descending: true,
-    });
+    let [is_ascending, setIsAscending] = useState(false);
     let [table_headers, setTableHeaders] = useState({
         username: username_display,
         date: date_display,
+        read: read_display,
     })
 
     const sort = (field) => {
-        if (table_sort.ascending) {
-            setTableSort({ascending: false, descending: true})
+        if (is_ascending) {
+            setIsAscending(false);
             if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() < b[field].toUpperCase()) ? 1 : -1));
-                setTableHeaders({...table_headers, username: `${username_display} ▾`, date: date_display})
+                setTableHeaders({...table_headers, username: `${username_display} ▾`, date: date_display, read: read_display});
             } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) < Date.parse(b[field])) ? 1 : -1));
-                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▾`})
+                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▾`, read: read_display});
+            } else if (field === read_field) {
+                setTable([...table].sort((a) => a[field] ? -1 : 1));
+                setTableHeaders({...table_headers, username: username_display, date: date_display, read: `${read_display} ▾`});
             }
         } else {
-            setTableSort({ascending: true, descending: false})
+            setIsAscending(true)
             if (field === username_field) {
                 setTable([...table].sort((a, b) => (a[field].toUpperCase() > b[field].toUpperCase()) ? 1 : -1));
-                setTableHeaders({...table_headers, username: `${username_display} ▴`, date: date_display})
+                setTableHeaders({...table_headers, username: `${username_display} ▴`, date: date_display, read: read_display});
             } else if (field === date_field) {
                 setTable([...table].sort((a, b) => (Date.parse(a[field]) > Date.parse(b[field])) ? 1 : -1));
-                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▴`})
+                setTableHeaders({...table_headers, username: username_display, date: `${date_display} ▴`, read: read_display});
+            } else if (field === read_field) {
+                setTable([...table].sort((a) => a[field] ? 1 : -1));
+                setTableHeaders({...table_headers, username: username_display, date: date_display, read: `${read_display} ▴`});
             }
         }
     };
 
     const toggleStorySelect = (e) => {
+        let flag = false;
         if (e.target.type === "checkbox") {
             let index = selected_stories.indexOf(e.target.id);
             if (index === -1) {
                 selected_stories.push(e.target.id);
                 setSelectedStories(selected_stories);
+                flag = true;
             } else {
                 selected_stories.splice(index, 1);
+                flag = false;
+            }
+            for (const story of table) {
+                if (story.tweet_id === e.target.id) {
+                    story[read_field] = flag;
+                    break;
+                }
             }
             localStorage.setItem("selected_stories", JSON.stringify(selected_stories))
         }
@@ -67,6 +82,9 @@ const Archive = () => {
             try {
                 const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_ENDPOINT}`)
                 const stories = await res.json();
+                for (const story of stories) {
+                    selected_stories.includes(story.tweet_id) ? story.read_flag = true : story.read_flag = false;
+                }
                 setTable([...stories].sort((a, b) => (Date.parse(a[date_field]) < Date.parse(b[date_field])) ? 1 : -1));
                 setTableHeaders({...table_headers, date: `${date_display} ▾`})
             } catch (e) {
@@ -98,8 +116,8 @@ const Archive = () => {
                             <table className="border border-light-gray border-spacing-4 rounded-md">
                                 <thead className="text-white bg-light-purple sticky top-0">
                                     <tr>
-                                        <th scope="col" className="table-head">
-                                            Read
+                                        <th scope="col" className="table-head" onClick={() => sort(read_field)}>
+                                            {table_headers.read}
                                         </th>
                                         <th scope="col" className="table-head" onClick={() => sort(username_field)}>
                                             {table_headers.username}
@@ -118,8 +136,9 @@ const Archive = () => {
                                             <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
                                                 <input 
                                                     id={tweet.tweet_id}
+                                                    key={tweet.tweet_id}
                                                     type="checkbox"
-                                                    checked={selected_stories.includes(tweet.tweet_id)}
+                                                    defaultChecked={selected_stories.includes(tweet.tweet_id)}
                                                     onChange={toggleStorySelect}>
                                                 </input>
                                             </td>
