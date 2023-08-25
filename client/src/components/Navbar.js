@@ -88,11 +88,8 @@ export default function Navbar() {
                         <Disclosure.Panel>
                             <div className="ml-5 lg:absolute">
                                 {navigation.map((item) => (
-                                    <Link to={item.href}>
-                                        <Disclosure.Button
-                                        key={item.name}
-                                        className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}
-                                        >
+                                    <Link to={item.href} key={item.name}>
+                                        <Disclosure.Button className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}>
                                             {item.name}
                                         </Disclosure.Button>
                                     </Link>

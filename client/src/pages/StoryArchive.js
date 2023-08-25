@@ -12,6 +12,12 @@ const Archive = () => {
     let date_field = "timestamp";
 
     let [table, setTable] = useState();
+    let [selected_stories, setSelectedStories] = useState(
+        localStorage.getItem("selected_stories") == null 
+        ? []
+        : JSON.parse(localStorage.getItem("selected_stories"))
+    );
+
     let [table_sort, setTableSort] = useState({
         ascending: false,
         descending: true,
@@ -43,6 +49,19 @@ const Archive = () => {
         }
     };
 
+    const toggleStorySelect = (e) => {
+        if (e.target.type === "checkbox") {
+            let index = selected_stories.indexOf(e.target.id);
+            if (index === -1) {
+                selected_stories.push(e.target.id);
+                setSelectedStories(selected_stories);
+            } else {
+                selected_stories.splice(index, 1);
+            }
+            localStorage.setItem("selected_stories", JSON.stringify(selected_stories))
+        }
+    }
+
     useEffect(() => {
         const getData = async() => {
             try {
@@ -55,8 +74,10 @@ const Archive = () => {
             }
         }
         getData();
+    // TODO: rework this missing dependencies issue
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, [date_field])
-
+    
 
     return (
         <>
@@ -77,6 +98,9 @@ const Archive = () => {
                             <table className="border border-light-gray border-spacing-4 rounded-md">
                                 <thead className="text-white bg-light-purple sticky top-0">
                                     <tr>
+                                        <th scope="col" className="table-head">
+                                            Read
+                                        </th>
                                         <th scope="col" className="table-head" onClick={() => sort(username_field)}>
                                             {table_headers.username}
                                         </th>
@@ -91,6 +115,14 @@ const Archive = () => {
                                 <tbody className="font-mono text-white bg-mid-gray border border-light-purple">
                                     {table.map(tweet => (
                                         <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque">
+                                            <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
+                                                <input 
+                                                    id={tweet.tweet_id}
+                                                    type="checkbox"
+                                                    checked={selected_stories.includes(tweet.tweet_id)}
+                                                    onChange={toggleStorySelect}>
+                                                </input>
+                                            </td>
                                             <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
                                                 <a href={`${BASE_TWITTER_URL}/${tweet.username}`}>
                                                     <span className="text-lighter-purple">@</span>{tweet.username}
