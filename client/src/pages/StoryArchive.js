@@ -116,7 +116,7 @@ const Archive = () => {
                             <table className="border border-light-gray border-spacing-4 rounded-md">
                                 <thead className="text-white bg-light-purple sticky top-0">
                                     <tr>
-                                        <th scope="col" className="table-head" onClick={() => sort(read_field)}>
+                                        <th scope="col" className="table-head px-[0.5em]" onClick={() => sort(read_field)}>
                                             {table_headers.read}
                                         </th>
                                         <th scope="col" className="table-head" onClick={() => sort(username_field)}>
@@ -133,8 +133,8 @@ const Archive = () => {
                                 <tbody className="font-mono text-white bg-mid-gray border border-light-purple">
                                     {table.map(tweet => (
                                         <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque">
-                                            <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
-                                                <input 
+                                            <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple text-center">
+                                                <input
                                                     id={tweet.tweet_id}
                                                     key={tweet.tweet_id}
                                                     type="checkbox"
