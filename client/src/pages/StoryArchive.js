@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, BASE_TWITTER_URL, STORY_ENDPOINT } from '../utils/constants';
+import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, BASE_TWITTER_URL, STORY_ENDPOINT, BASE_STORIES_URL } from '../utils/constants';
 
 import '../styles/archive.css';
 
@@ -116,24 +116,27 @@ const Archive = () => {
                             <table className="border border-light-gray border-spacing-4 rounded-md">
                                 <thead className="text-white bg-light-purple sticky top-0">
                                     <tr>
-                                        <th scope="col" className="table-head px-[0.5em]" onClick={() => sort(read_field)}>
+                                        <th scope="col" className="table-head sort-table-head" onClick={() => sort(read_field)}>
                                             {table_headers.read}
                                         </th>
-                                        <th scope="col" className="table-head" onClick={() => sort(username_field)}>
+                                        <th scope="col" className="table-head sort-table-head" onClick={() => sort(username_field)}>
                                             {table_headers.username}
                                         </th>
-                                        <th scope="col" className="table-head" onClick={() => sort(date_field)}>
+                                        <th scope="col" className="table-head sort-table-head" onClick={() => sort(date_field)}>
                                             {table_headers.date}
                                         </th>
-                                        <th scope="col">
+                                        <th scope="col" className="table-head">
                                             Original Link
+                                        </th>
+                                        <th scope="col" className="table-head px-[1em]">
+                                            Archive Link
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody className="font-mono text-white bg-mid-gray border border-light-purple">
                                     {table.map(tweet => (
-                                        <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque">
-                                            <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple text-center">
+                                        <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque whitespace-nowrap ">
+                                            <td className="px-6 py-2 text-center">
                                                 <input
                                                     id={tweet.tweet_id}
                                                     key={tweet.tweet_id}
@@ -142,17 +145,22 @@ const Archive = () => {
                                                     onChange={toggleStorySelect}>
                                                 </input>
                                             </td>
-                                            <td className="whitespace-nowrap px-6 py-2 border-b-1 border-light-purple">
+                                            <td className="px-6 py-2">
                                                 <a href={`${BASE_TWITTER_URL}/${tweet.username}`}>
                                                     <span className="text-lighter-purple">@</span>{tweet.username}
                                                 </a>
                                             </td>
-                                            <td className="whitespace-nowrap px-6 py-2">
+                                            <td className="px-6 py-2">
                                                 {new Date(tweet.timestamp).toLocaleDateString('en-us', { month: "short", day: "numeric", year: "numeric" })}
                                             </td>
-                                            <td className="whitespace-nowrap px-6 py-2">
+                                            <td className="px-6 py-2">
                                                 <a href={`${BASE_TWEET_LINK}/${tweet.tweet_id}`}>
                                                     {`/status/${tweet.tweet_id}`}
+                                                </a>
+                                            </td>
+                                            <td className="text-center">
+                                                <a href={`${BASE_STORIES_URL}${tweet.tweet_id}`}>
+                                                    👁️‍🗨️
                                                 </a>
                                             </td>
                                         </tr>

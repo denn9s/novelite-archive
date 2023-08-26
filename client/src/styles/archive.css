@@ -1,4 +1,9 @@
-.table-head:hover {
+.table-head {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.sort-table-head:hover {
     cursor: pointer;
     background-color: #8570ff9a;
 }
