@@ -3,7 +3,7 @@ import React from "react";
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
 import { Link } from "react-router-dom"
 
-import { BASE_TWITTER_URL } from "../utils/constants";
+import { BASE_TWITTER_URL, SHIORI_YOUTUBE_LINK } from "../utils/constants";
 
 import "../styles/navbar.css"
 
@@ -17,7 +17,7 @@ const navigation = [
 export default function Navbar() {
     let [isOpen, setIsOpen] = React.useState(false)
 
-    function playWink(e) {
+    function playGIF(e) {
         const images = [
             'https://media.tenor.com/psHK8ymKLakAAAAM/shiori-novella-shiori.gif', 
             'https://media.tenor.com/l9Ob9hBq0c4AAAAd/shiori-novella-shiori.gif',
@@ -27,7 +27,7 @@ export default function Navbar() {
         e.target.src = images[random];
     }
 
-    function stopWink(e) {
+    function stopGIF(e) {
         e.target.src = "../profile.jpg";
     }
 
@@ -61,8 +61,8 @@ export default function Navbar() {
                                                 className="h-[5em] mt-[0.5em] w-auto rounded-full border-2 border-white purple-shadow"
                                                 src="../profile.jpg"
                                                 alt="the best archiver"
-                                                onMouseOver={playWink}
-                                                onMouseLeave={stopWink}
+                                                onMouseOver={playGIF}
+                                                onMouseLeave={stopGIF}
                                             />
                                         </Link>
                                     </div>
@@ -88,11 +88,8 @@ export default function Navbar() {
                         <Disclosure.Panel>
                             <div className="ml-5 lg:absolute">
                                 {navigation.map((item) => (
-                                    <Link to={item.href}>
-                                        <Disclosure.Button
-                                        key={item.name}
-                                        className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}
-                                        >
+                                    <Link to={item.href} key={item.name}>
+                                        <Disclosure.Button className={'text-white hover:text-light-purple block rounded-md px-0 lg:px-6 py-2 text-base font-medium'}>
                                             {item.name}
                                         </Disclosure.Button>
                                     </Link>
@@ -121,7 +118,7 @@ export default function Navbar() {
                             <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
                             <p className="py-3 text-white text-md">
                                 This was made for <s>my</s> our favorite Hololive archiver,{' '}
-                                <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
+                                <a href={`${SHIORI_YOUTUBE_LINK}`} className="text-light-purple">Shiori Novella</a>,{' '}
                                 with the intention of letting fans have an easier time browsing through archived fanfiction to read{' '}
                                 (and eventually more things).{' '}
                                 Scrolling through hashtags can be tedious, but I hope this can make it a bit less of a headache!
@@ -136,7 +133,7 @@ export default function Navbar() {
                             <h6 className="text-3xl font-medium mt-4">Acknowledgements</h6>
                             <ul className="list-disc list-inside py-3">
                                 <li className="ml-1">
-                                    <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
+                                    <a href={`${SHIORI_YOUTUBE_LINK}`} className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
                                 </li>
                                 <li className="ml-1">
                                     All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity!

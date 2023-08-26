@@ -1,4 +1,9 @@
-.table-head:hover {
+.table-head {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.sort-table-head:hover {
     cursor: pointer;
     background-color: #8570ff9a;
 }
@@ -16,4 +21,17 @@
     50%  { content: '..'; }
     75%  { content: '...'; }
     100% { content: ''; }
+}
+
+input[type=checkbox] {
+    accent-color: #8570ff;
+}
+
+.selected-story-row {
+    background-color: #2e2e2e;
+    color: #464545;
+}
+
+.selected-story-row:hover {
+    background-color: #1616169a;
 }
