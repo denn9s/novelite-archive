@@ -26,3 +26,12 @@
 input[type=checkbox] {
     accent-color: #8570ff;
 }
+
+.selected-story-row {
+    background-color: #2e2e2e;
+    color: #464545;
+}
+
+.selected-story-row:hover {
+    background-color: #1616169a;
+}

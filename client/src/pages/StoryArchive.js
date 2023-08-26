@@ -67,14 +67,21 @@ const Archive = () => {
                 selected_stories.splice(index, 1);
                 flag = false;
             }
-            for (const story of table) {
+            let table_copy = [...table]
+            for (const story of table_copy) {
                 if (story.tweet_id === e.target.id) {
                     story[read_field] = flag;
                     break;
                 }
             }
+            setTable(table_copy);
             localStorage.setItem("selected_stories", JSON.stringify(selected_stories))
         }
+    }
+
+    // TODO: this is a little hacky but works for now HAHA
+    const toggleRowSelect = (tweet_id) => {
+        toggleStorySelect({target: {id: tweet_id, type: "checkbox"}})
     }
 
     useEffect(() => {
@@ -135,19 +142,27 @@ const Archive = () => {
                                 </thead>
                                 <tbody className="font-mono text-white bg-mid-gray border border-light-purple">
                                     {table.map(tweet => (
-                                        <tr key={tweet.tweet_id} className="hover:bg-light-purple-opaque whitespace-nowrap ">
+                                        <tr key={tweet.tweet_id} className={tweet.read_flag === true 
+                                            ? "whitespace-nowrap selected-story-row text-black" 
+                                            : "hover:bg-light-purple-opaque whitespace-nowrap"}
+                                            onClick={() => toggleRowSelect(tweet.tweet_id)}
+                                        >
                                             <td className="px-6 py-2 text-center">
                                                 <input
                                                     id={tweet.tweet_id}
                                                     key={tweet.tweet_id}
                                                     type="checkbox"
                                                     defaultChecked={selected_stories.includes(tweet.tweet_id)}
+                                                    checked={selected_stories.includes(tweet.tweet_id)}
                                                     onChange={toggleStorySelect}>
                                                 </input>
                                             </td>
                                             <td className="px-6 py-2">
                                                 <a href={`${BASE_TWITTER_URL}/${tweet.username}`}>
-                                                    <span className="text-lighter-purple">@</span>{tweet.username}
+                                                    <span className={tweet.read_flag === true ? "" : "text-lighter-purple"}>
+                                                        @
+                                                    </span>
+                                                    {tweet.username}
                                                 </a>
                                             </td>
                                             <td className="px-6 py-2">
