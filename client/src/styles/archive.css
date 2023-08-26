@@ -17,3 +17,7 @@
     75%  { content: '...'; }
     100% { content: ''; }
 }
+
+input[type=checkbox] {
+    accent-color: #8570ff;
+}
