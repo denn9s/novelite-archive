@@ -8,7 +8,7 @@ import HeaderTypewriter from '../components/HeaderTypewriter';
 import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT, BASE_TWITTER_URL, 
     STORY_ENDPOINT, SHIORI_YOUTUBE_LINK } from '../utils/constants';
 
-const Stories = () => {
+const StoryRandom = () => {
     let { tweet_id } = useParams();
 
     let [state, setState] = useState({
@@ -121,4 +121,4 @@ const Stories = () => {
     );
 }
 
-export default Stories;
+export default StoryRandom;

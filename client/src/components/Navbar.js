@@ -17,7 +17,7 @@ const navigation = [
 export default function Navbar() {
     let [isOpen, setIsOpen] = React.useState(false)
 
-    function playWink(e) {
+    function playGIF(e) {
         const images = [
             'https://media.tenor.com/psHK8ymKLakAAAAM/shiori-novella-shiori.gif', 
             'https://media.tenor.com/l9Ob9hBq0c4AAAAd/shiori-novella-shiori.gif',
@@ -27,7 +27,7 @@ export default function Navbar() {
         e.target.src = images[random];
     }
 
-    function stopWink(e) {
+    function stopGIF(e) {
         e.target.src = "../profile.jpg";
     }
 
@@ -61,8 +61,8 @@ export default function Navbar() {
                                                 className="h-[5em] mt-[0.5em] w-auto rounded-full border-2 border-white purple-shadow"
                                                 src="../profile.jpg"
                                                 alt="the best archiver"
-                                                onMouseOver={playWink}
-                                                onMouseLeave={stopWink}
+                                                onMouseOver={playGIF}
+                                                onMouseLeave={stopGIF}
                                             />
                                         </Link>
                                     </div>

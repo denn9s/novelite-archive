@@ -110,7 +110,7 @@ const Archive = () => {
                 :
                 // finished loading, display table
                 <>
-                    <p className="text-center text-light-gray text-s mt-0.5">Total stories: {table.length}</p>
+                    <p className="text-center text-light-gray text-s mb-5">Total stories: {table.length}</p>
                     <div className="flex items-center justify-center">
                         <div className="overflow-auto h-[calc(100vh-200px)] rounded-lg">
                             <table className="border border-light-gray border-spacing-4 rounded-md">
