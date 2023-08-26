@@ -1,6 +1,6 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Story from '../components/Story';
 import HeaderTypewriter from '../components/HeaderTypewriter';
@@ -10,7 +10,7 @@ import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_C
 
 const StoryRandom = () => {
     let { tweet_id } = useParams();
-
+    let navigate = useNavigate();
     let [state, setState] = useState({
         username: '',
         id: '',
@@ -82,6 +82,7 @@ const StoryRandom = () => {
                 show: true,
                 count: state.count + 1,
             });
+            navigate(`/stories/${story.id}`);
         } catch (e) {
             return;
         }
