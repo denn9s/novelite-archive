@@ -11,9 +11,10 @@ export default function AppRouter() {
         <BrowserRouter>
             <Navbar/>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="stories" element={<Stories />} />
-                <Route path="stories/archive" element={<Archive />} />
+                <Route path="/" element={<Home/>}/>
+                <Route path="stories" element={<Stories/>}/>
+                <Route path="stories/:tweet_id" element={<Stories/>}/>
+                <Route path="stories/archive" element={<Archive/>}/>
             </Routes>
         </BrowserRouter>
     )

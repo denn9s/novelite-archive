@@ -8,3 +8,5 @@ export const STORY_READ_COUNT_ENDPOINT='storyReadCount';
 
 export const BASE_TWITTER_URL = 'https://www.twitter.com';
 export const BASE_TWEET_LINK = BASE_TWITTER_URL + '/i/status'
+
+export const SHIORI_YOUTUBE_LINK = 'https://www.youtube.com/@ShioriNovella'

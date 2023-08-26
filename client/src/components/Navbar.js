@@ -3,7 +3,7 @@ import React from "react";
 import { Disclosure, Menu, Dialog } from '@headlessui/react'
 import { Link } from "react-router-dom"
 
-import { BASE_TWITTER_URL } from "../utils/constants";
+import { BASE_TWITTER_URL, SHIORI_YOUTUBE_LINK } from "../utils/constants";
 
 import "../styles/navbar.css"
 
@@ -118,7 +118,7 @@ export default function Navbar() {
                             <h6 className="text-3xl font-medium mt-4">What's the purpose of this?</h6>
                             <p className="py-3 text-white text-md">
                                 This was made for <s>my</s> our favorite Hololive archiver,{' '}
-                                <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>,{' '}
+                                <a href={`${SHIORI_YOUTUBE_LINK}`} className="text-light-purple">Shiori Novella</a>,{' '}
                                 with the intention of letting fans have an easier time browsing through archived fanfiction to read{' '}
                                 (and eventually more things).{' '}
                                 Scrolling through hashtags can be tedious, but I hope this can make it a bit less of a headache!
@@ -133,7 +133,7 @@ export default function Navbar() {
                             <h6 className="text-3xl font-medium mt-4">Acknowledgements</h6>
                             <ul className="list-disc list-inside py-3">
                                 <li className="ml-1">
-                                    <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
+                                    <a href={`${SHIORI_YOUTUBE_LINK}`} className="text-light-purple">Shiori Novella</a>, for obvious reasons, I'd hope.
                                 </li>
                                 <li className="ml-1">
                                     All the fanfic writers - I'm not much of a writer myself, but I really enjoy everyone's creativity!

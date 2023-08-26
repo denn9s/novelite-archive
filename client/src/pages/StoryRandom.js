@@ -1,12 +1,16 @@
 import '../App.css';
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import Story from '../components/Story';
 import HeaderTypewriter from '../components/HeaderTypewriter';
 
-import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT, BASE_TWITTER_URL } from '../utils/constants';
+import { BASE_ENDPOINT_URL, BASE_TWEET_LINK, RANDOM_STORY_ENDPOINT, STORY_READ_COUNT_ENDPOINT, BASE_TWITTER_URL, 
+    STORY_ENDPOINT, SHIORI_YOUTUBE_LINK } from '../utils/constants';
 
 const Stories = () => {
+    let { tweet_id } = useParams();
+
     let [state, setState] = useState({
         username: '',
         id: '',
@@ -18,20 +22,50 @@ const Stories = () => {
     });
 
     useEffect(() => {
-        const getCount = async() => {
-            try {
-                const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_READ_COUNT_ENDPOINT}`);
-                let count_obj = await res.json();
-                setState(state => ({
-                    ...state,
-                    count: count_obj.count,
-                }));
-            } catch (e) {
-                console.log(e);
+        async function getCount() {
+            const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_READ_COUNT_ENDPOINT}`);
+            let count_obj = await res.json();
+            setState(state => ({
+                ...state,
+                count: count_obj.count,
+            }));
+        }
+        async function increaseCountOnce() {
+            await getCount();
+            await fetch(`${BASE_ENDPOINT_URL}${STORY_READ_COUNT_ENDPOINT}`, { method: "POST" });
+            setState(state => ({
+                ...state,
+                count: state.count + 1,
+            }));
+        }
+        async function getSingleStory() {
+            const reg = new RegExp('^[0-9]+$');
+            if (tweet_id && reg.test(tweet_id)) {
+                try {
+                    const res = await fetch(`${BASE_ENDPOINT_URL}${STORY_ENDPOINT}/${tweet_id}`)
+                    const story = await res.json();
+                    if (story == null) { return; }
+                    await setState(state => ({
+                        ...state,
+                        username: story.username,
+                        text: story.text,
+                        timestamp: story.timestamp,
+                        link: `${BASE_TWEET_LINK}/${story.id}`,
+                        attached_images: story.attached_images,
+                        show: true,
+                    }));
+                } catch (e) {
+                    console.log(e);
+                }
             }
         }
-        getCount();
-    }, [setState]);
+        if (tweet_id) { 
+            getSingleStory(tweet_id);
+            increaseCountOnce();
+        } else {
+            getCount();
+        }
+    }, [tweet_id]);
 
     const getStory = async() => {
         try {
@@ -59,7 +93,7 @@ const Stories = () => {
                 <HeaderTypewriter text="#ShiorinStories" delay={70}/>
                 <p className="text-white">
                     Subscribe to Shiori's {' '}
-                    <a href="https://www.youtube.com/@ShioriNovella" className="text-light-purple">YouTube</a>{' '} 
+                    <a href={`${SHIORI_YOUTUBE_LINK}`} className="text-light-purple">YouTube</a>{' '} 
                     and follow her on {' '}
                     <a href={`${BASE_TWITTER_URL}/shiorinovella`} className="text-light-purple">Twitter</a>!
                 </p>
