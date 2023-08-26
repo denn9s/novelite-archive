@@ -152,10 +152,9 @@ const Archive = () => {
                                                     id={tweet.tweet_id}
                                                     key={tweet.tweet_id}
                                                     type="checkbox"
-                                                    defaultChecked={selected_stories.includes(tweet.tweet_id)}
-                                                    checked={selected_stories.includes(tweet.tweet_id)}
-                                                    onChange={toggleStorySelect}>
-                                                </input>
+                                                    checked={tweet.read_flag === true}
+                                                    onChange={() => {}}
+                                                />
                                             </td>
                                             <td className="px-6 py-2">
                                                 <a href={`${BASE_TWITTER_URL}/${tweet.username}`}>
