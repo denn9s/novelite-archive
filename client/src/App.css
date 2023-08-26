@@ -27,3 +27,7 @@ a:hover {
 .button-white-shadow {
     box-shadow: 0 0.35em 1em -3px #ffffff30;
 }
+
+.img-alt-style {
+    color: #848484;
+}
